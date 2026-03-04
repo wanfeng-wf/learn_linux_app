@@ -24,4 +24,5 @@ build/
 .env
 config.local.js
 compile_commands.json
+AGENTS.md
     
