@@ -76,7 +76,7 @@ int main()
         // 回显数据 (Echo)
         char msg[BUFFER_SIZE + 32];
         sprintf(msg, "Echo: %s", buffer);
-        send(new_socket, msg, strlen(msg), 0);
+        write(new_socket, msg, strlen(msg));
     }
 
     // 6. 关闭连接

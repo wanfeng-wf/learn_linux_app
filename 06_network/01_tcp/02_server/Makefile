@@ -1,4 +1,4 @@
-REMOTE_HOST = root@192.168.7.2
+REMOTE_HOST = root@192.168.137.2
 TARGET_PATH = $(REMOTE_HOST):/root/tcp_server
 
 INC_DIR = ./inc

@@ -1,7 +1,6 @@
 #define _XOPEN_SOURCE 700
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 #include <signal.h>
@@ -85,7 +84,7 @@ int main(int argc, char const *argv[])
         }
 
         // 发送
-        send(client_fd, buffer, strlen(buffer), 0);
+        write(client_fd, buffer, strlen(buffer));
 
         // 接收回显
         memset(buffer, 0, BUFFER_SIZE);

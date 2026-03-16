@@ -116,7 +116,7 @@ int main()
 
             char msg[BUFFER_SIZE + 32];
             sprintf(msg, "Echo: %s", buffer);
-            send(client_fd, msg, strlen(msg), 0);
+            write(client_fd, msg, strlen(msg));
         }
         close(client_fd);
         printf("[Server] Connection closed. Waiting for next connection...\n");
