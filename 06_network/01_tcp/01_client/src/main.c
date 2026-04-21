@@ -84,14 +84,14 @@ int main(int argc, char const *argv[])
         }
 
         // 发送
-        write(client_fd, buffer, strlen(buffer));
+        send(client_fd, buffer, strlen(buffer), 0);
 
         // 接收回显
         memset(buffer, 0, BUFFER_SIZE);
-        int valread = read(client_fd, buffer, BUFFER_SIZE);
-        if (valread > 0)
+        int valrecv = recv(client_fd, buffer, BUFFER_SIZE, 0);
+        if (valrecv > 0)
         {
-            printf("[Server Reply]: %.*s\n", valread, buffer);
+            printf("[Server Reply]: %.*s\n", valrecv, buffer);
         }
         else
         {

@@ -63,20 +63,20 @@ int main()
         memset(buffer, 0, BUFFER_SIZE);
 
         // 读取数据
-        int valread = read(new_socket, buffer, BUFFER_SIZE);
-        if (valread <= 0)
+        int valrecv = recv(new_socket, buffer, BUFFER_SIZE, 0);
+        if (valrecv <= 0)
         {
-            // read 返回 0 表示客户端断开了连接
+            // recv 返回 0 表示客户端断开了连接
             printf("[Server] Client disconnected.\n");
             break;
         }
 
-        printf("[Server] Received: %.*s", valread, buffer);
+        printf("[Server] Received: %.*s", valrecv, buffer);
 
         // 回显数据 (Echo)
         char msg[BUFFER_SIZE + 32];
         sprintf(msg, "Echo: %s", buffer);
-        write(new_socket, msg, strlen(msg));
+        send(new_socket, msg, strlen(msg), 0);
     }
 
     // 6. 关闭连接
