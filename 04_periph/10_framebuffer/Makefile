@@ -1,16 +1,16 @@
-REMOTE_HOST = root@192.168.7.2
-TARGET_PATH = $(REMOTE_HOST):/root/framebuffer
+REMOTE_HOST = root@192.168.137.2
+TARGET_PATH = $(REMOTE_HOST):/root
 
 CROSS_COMPILE ?= aarch64-linux-gnu-
 CC = $(CROSS_COMPILE)gcc
 
 SRC_DIR = ./src
 BUILD_DIR = ./build
-TARGET = $(BUILD_DIR)/main
+TARGET = $(BUILD_DIR)/fb_test
 
 # 更新编译参数
 CFLAGS = -Wall $(INC_FLAGS)
-LDFLAGS = -lgpiod
+LDFLAGS = 
 
 # ./src/*.c
 SRCS = $(shell find $(SRC_DIR) -name '*.c')

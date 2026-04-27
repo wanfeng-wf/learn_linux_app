@@ -1,8 +1,6 @@
 #include <unistd.h>
 #include <stdio.h>
-#include <stdlib.h>
 #include <fcntl.h>
-#include <string.h>
 #include <linux/fb.h>
 #include <sys/mman.h>
 #include <sys/ioctl.h>
@@ -50,7 +48,7 @@ int main()
     screensize = vinfo.xres * vinfo.yres * vinfo.bits_per_pixel / 8;
 
     fbp = (uint16_t *)mmap(0, screensize, PROT_READ | PROT_WRITE, MAP_SHARED, fbfd, 0);
-    if ((intptr_t)fbp == -1)
+    if ((int)fbp == -1)
     {
         perror("Error: failed to map framebuffer device to memory");
         return 1;
